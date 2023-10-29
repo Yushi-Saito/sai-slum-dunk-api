@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/e4b9e0ac-a603-4849-b250-80d3f5932946/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sai-slum-dunk-api",
+    "appService.deploySubpath": "app"
+}
