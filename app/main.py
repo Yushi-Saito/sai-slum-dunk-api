@@ -41,7 +41,7 @@ mem = [
 # ルート: 説明
 @app.get("/")
 async def root():
-    description = "スラムダンクのAPIです。/messageでランダムに名言を出力します。/talk/文字列でランダムなメンバが任意の文字列を言います"
+    description = "スラムダンクのAPIです。/messageでランダムに名言を出力します。/member/<文字列>でランダムなメンバが任意の文字列を言います。/testは秘密"
     return {"message": description}
 
 # /message: スラダン名言ランキング
@@ -51,8 +51,12 @@ def message():
     return {"message": msg[rand]}
 
 # /member: 任意の文字列をランダムなメンバに言わせられる
+@app.get("/member")
+def member_not_word():
+    return {"message": "話す言葉がない！"}
+
 @app.get("/member/{item}")
-def member(item: str):
+def member(item: str = None):
     rand = random.randint(0,4)
     msg_member = mem[rand] + "「" + item + "」"
     return {"message": msg_member}
